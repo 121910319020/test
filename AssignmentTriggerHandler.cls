@@ -21,6 +21,7 @@ public class AssignmentTriggerHandler
             for (Assignment__c assignment : project.Tasks__r) {
                 if (assignment.Status__c != 'Completed') {
                     allAssignmentsCompleted = false;
+                
                     break;
                 }
             }
