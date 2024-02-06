@@ -13,6 +13,7 @@ public static String createLibrary(String libraryName) {
         // Create a new ContentWorkspace with the specified name
         ContentWorkspace newWorkspace = new ContentWorkspace(
             Name = libraryName
+            age = name
         );
 
         // Insert the new ContentWorkspace
