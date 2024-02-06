@@ -1,0 +1,47 @@
+<template>
+    <lightning-card title="File Preview and Download">
+        <!-- New button to preview related files -->
+        <div class="slds-grid">
+            <div class="slds-col">
+                <lightning-button label="Preview Related Files" onclick={previewRelatedFiles}></lightning-button>
+            </div>
+        </div>
+
+        <template if:true={showAllFiles}>
+            <template for:each={filesList} for:item="file">
+                <div key={file.value} class="slds-box">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                            <p><strong>FileName - </strong>{file.label}</p>
+                        </div>
+                        <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12 slds-col_bump-left">
+                            <div class="slds-grid">
+                                <!-- Download button -->
+                                <div class="slds-col">
+                                    <a href={file.url} download class="slds-button slds-button_brand">Download</a>
+                                </div>
+                                <!-- Preview button -->
+                                <div class="slds-col">
+                                    <lightning-button label="Preview" 
+                                        data-id={file.value}
+                                        onclick={previewHandler}
+                                    ></lightning-button>
+                                </div>
+                                <!-- Delete button -->
+                                <div class="slds-col">
+                                    <lightning-button label="Delete"
+                                        variant="destructive"
+                                        data-id={file.value}
+                                        onclick={deleteHandler}
+                                        disabled={checkspinner}
+                                    ></lightning-button>
+                                    <lightning-spinner if:true={checkspinner}></lightning-spinner>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>

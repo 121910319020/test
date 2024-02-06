@@ -1,0 +1,40 @@
+<template>
+    <div>
+        <lightning-button label="Create Assignment" onclick={openModal}></lightning-button>
+
+        <!-- Assignment Type Modal -->
+        <template if:true={isAssignmentTypeModalOpen}>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+            <div class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <lightning-card title="Assignment Type">
+                        <lightning-radio-group options={assignmentTypeOptions} value={selectedAssignmentType} onchange={handleAssignmentTypeChange}></lightning-radio-group>
+                        <lightning-button label="Next" onclick={openAssignmentModal}></lightning-button>
+                    </lightning-card>
+                </div>
+            </div>
+        </template>
+
+        <!-- Assignment Modal -->
+        <template if:true={isAssignmentModalOpen}>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+            <div class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <lightning-card title="\{selectedAssignmentType} Assignment">
+                        <!-- Add your assignment fields here -->
+                        <lightning-input label="Name" value={assignmentName}></lightning-input>
+                        <lightning-input label="Description" value={assignmentDescription}></lightning-input>
+                        <lightning-input label="Due Date" type="date" value={assignmentDueDate}></lightning-input>
+                        <lightning-combobox label="Team Members" options={teamMembersOptions} value={selectedTeamMembers} multiple></lightning-combobox>
+                        <lightning-input label="Subject" value={assignmentSubject}></lightning-input>
+                        <lightning-input label="Status" type="picklist" value={assignmentStatus}></lightning-input>
+                        <lightning-input label="Priority" type="picklist" value={assignmentPriority}></lightning-input>
+
+                        <lightning-button label="Create Assignment" onclick={createAssignment}></lightning-button>
+                        <lightning-button label="Cancel" onclick={closeModal}></lightning-button>
+                    </lightning-card>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>
