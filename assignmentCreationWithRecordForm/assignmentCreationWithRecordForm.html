@@ -1,0 +1,12 @@
+<template>
+    <lightning-input label="Assigned To" value={assignedTo} onchange={handleInputChange}></lightning-input>
+    <lightning-input label="Name" value={name} onchange={handleInputChange}></lightning-input>
+    <lightning-input label="Assignment Type" value={assignmentType} onchange={handleInputChange}></lightning-input>
+    <lightning-input label="Description" value={description} onchange={handleInputChange}></lightning-input>
+    <lightning-input label="Due Date" type="date" value={dueDate} onchange={handleInputChange}></lightning-input>
+    <lightning-input label="Parent Assignment" value={parentAssignment} onchange={handleInputChange}></lightning-input>
+    <lightning-input label="Related To" value={relatedTo} onchange={handleInputChange}></lightning-input>
+    <lightning-input label="Priority" value={priority} onchange={handleInputChange}></lightning-input>
+    <lightning-input label="Status" value={status} onchange={handleInputChange}></lightning-input>
+    <lightning-button label="Create Record" onclick={handleCreateRecord}></lightning-button>
+</template>
